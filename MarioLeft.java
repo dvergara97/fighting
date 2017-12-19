@@ -2,7 +2,7 @@ import javafx.animation.AnimationTimer;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 
-public class MarioRight extends AnimationTimer {
+public class MarioLeft extends AnimationTimer {
 
 	private GraphicsContext gc;
 	private Image frame1;
@@ -16,12 +16,12 @@ public class MarioRight extends AnimationTimer {
 	private boolean changed;
 	private int currentFrame = 0;
 	
-	public MarioRight(GraphicsContext newGc, long inTime, int[] inPositions, int inImageWidth, int inImageHeight) {
+	public MarioLeft(GraphicsContext newGc, long inTime, int[] inPositions, int inImageWidth, int inImageHeight) {
 		imageWidth = inImageWidth;
 		imageHeight = inImageHeight;
-		frame1 = new Image("marioRight1.png", imageWidth, imageHeight, true, true);
-		frame2 = new Image("marioRight2.png", imageWidth, imageHeight, true, true);
-		frame3 = new Image("marioRight3.png", imageWidth, imageHeight, true, true);
+		frame1 = new Image("marioLeft1.png", imageWidth, imageHeight, true, true);
+		frame2 = new Image("marioLeft2.png", imageWidth, imageHeight, true, true);
+		frame3 = new Image("marioLeft3.png", imageWidth, imageHeight, true, true);
 		gc = newGc;
 		startTime = inTime;
 		positions = inPositions;
@@ -46,8 +46,8 @@ public class MarioRight extends AnimationTimer {
 	@Override
 	public void handle(long currentTime) {
 		currentTime = (long) ((currentTime - startTime) / 1000000000.0);
-		if ( positions[0] < 1500 - imageWidth) {
-			positions[0] += 3;
+		if ( positions[0] > 0) {
+			positions[0] -= 3;
 		}
 		gc.clearRect(0, 0, 1500, 900);
 		if (currentFrame <= 20) {

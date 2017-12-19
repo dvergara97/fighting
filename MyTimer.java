@@ -30,7 +30,7 @@ public class MyTimer extends AnimationTimer {
 			else if (currentTime % 3 == 1) {
 				gc.fillText("With", 0, 400);
 			}
-			else {
+			else{
 				gc.fillText("Friends", 0, 700);
 			}
 			changed = false;

@@ -45,10 +45,15 @@ public class PersonalProject extends Application {
 		@Override
 		public void handle(KeyEvent key) {
 			long currentTime = System.nanoTime();
-			
 			if (key.getText().equals("d")) {
 				if (! player1Animated) {
 					player1.animateRight(currentTime);
+					player1Animated = true;
+				}
+			}
+			else if (key.getText().equals("a")) {
+				if (! player1Animated) {
+					player1.animateLeft(currentTime);
 					player1Animated = true;
 				}
 			}
@@ -67,6 +72,11 @@ public class PersonalProject extends Application {
 				player1Animated = false;
 				player1.stopRight();
 				System.out.println("d is released");
+			}
+			if (key.getText().equals("a")) {
+				player1Animated = false;
+				player1.stopLeft();
+				System.out.println("a is released");
 			}
 		}
 	}
